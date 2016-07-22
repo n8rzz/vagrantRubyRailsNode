@@ -1,12 +1,21 @@
- #!/usr/bin/env bash
- source $HOME/.rvm/scripts/rvm
+#!/usr/bin/env bash
+echo "::: --- ---- Installing Ruby"
 
- rvm use --default --install $1
+source $HOME/.rvm/scripts/rvm
+echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
 
- shift
+rvm use $1 --install --default &>/dev/null
 
- if (( $# ))
- then gem install $@
- fi
+echo "::: :::: :::"
+echo "::: --- ---- Installing Ruby Gems"
 
- rvm cleanup all
+shift
+
+if (( $# ))
+then gem install $@ 
+fi
+
+rvm cleanup all
+
+echo "::: :::: :::: :::: :::: :::: :::: :::: :::: :::: :::"
+
