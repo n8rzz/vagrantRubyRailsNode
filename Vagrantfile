@@ -16,10 +16,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.ssh.forward_agent = true
   end
 
+  config.vm.provision :file, source: "provision/file/vimrc", destination: "~/.vimrc"
+
   config.vm.provision :shell, path: "provision/shell/update-system.sh", privileged: false
   config.vm.provision :shell, path: "provision/shell/install-postgresql.sh", privileged: false
   config.vm.provision :shell, path: "provision/shell/install-rvm.sh", args: "stable", privileged: false
   config.vm.provision :shell, path: "provision/shell/install-ruby.sh", args: "2.3.0 rails", privileged: false
   config.vm.provision :shell, path: "provision/shell/install-node.sh", privileged: false
+  config.vm.provision :shell, path: "provision/shell/install-vim-plugins.sh", privileged: false
 end
 
