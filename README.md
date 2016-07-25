@@ -12,4 +12,5 @@ This may take a while...
 > vagrant ssh
 > cd ~/vagrant
 
-
+## Notes
+connecting pgAdmin to vagrant postgres db: http://theneum.com/blog/connect-to-vagrant-postgres-database-via-pgadmin3-on-mac/
